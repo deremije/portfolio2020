@@ -2,7 +2,6 @@
     <div class='site_slider'>
         <div class='window' v-for='site in sites' :key='site.site' :class='site.class' @click='bring_to_front(site.site)'>
             <img :src='"images/" + site.site + ".png"' />
-            
         </div>
         <div class='link' v-if='show_link'>
             <a :href="'https://' + front_slide.link">
@@ -18,24 +17,34 @@ export default {
     data() {
         return {
             show_link: true,
-            sites: {
+            sites: { 
                 cryptomnio: { 
                     site: 'cryptomnio',
                     class: 'front',
                     description: 'Landing page for a cryptocurrency exchange aggregator and trading tool. Whipped up in a day from a pencil sketch.',
-                    link: 'cryptomnio.com'
+                    link: 'cryptomnio.com',
+                    flavor: 'chocolate'
                 }, 
                 shannon: {
                     site: 'shannon',
-                    class: 'middle',
+                    class: 'second',
                     description: 'Portfolio site for a UX/UI Designer.  Single Page reactive app built in vanilla HTML / CSS / JS.',
-                    link: 'shannou.com'
+                    link: 'shannou.com',
+                    flavor: 'vanilla'
                 }, 
                 donnelly: {
                     site: 'donnelly',
-                    class: 'back',
+                    class: 'third',
                     description: 'Small business brochure site for an accountant serving Americans living in France.',
-                    link: 'donnelly-cpa.com'
+                    link: 'donnelly-cpa.com',
+                    flavor: 'strawberry'
+                },
+                jeremy_randall: {
+                    site: 'jeremy_randall',
+                    class: 'fourth',
+                    description: 'This site!',
+                    link: 'deremije.com',
+                    flavor: 'mint'
                 }
             },
         }
@@ -51,8 +60,8 @@ export default {
     },
     methods: {
         bring_to_front(site_name) {
-            // shuffle sites
             if (this.sites[site_name].class != 'front') {
+                this.$emit("scoop", this.sites[site_name].flavor);
                 for (let site in this.sites) {
                     if (this.sites[site].class == 'front') {
                         this.sites[site].class = this.sites[site_name].class;
@@ -65,7 +74,6 @@ export default {
                 }, 600)
             }
         },
-
     }
 }
 </script>
@@ -81,6 +89,7 @@ $animation_ms: 600ms;
     width: $image_wide;
     height: $image_tall;
     padding: 20px 0;
+    margin-bottom: 40px;
     background-color: transparent;
     .window {
         width: calc(#{$image_wide} - 2px);
@@ -106,19 +115,27 @@ $animation_ms: 600ms;
     }
     .front {
         transform: scale(1) translate(0, calc(#{$image_tall} / 4));
-        z-index: 30;
+        z-index: 40;
         opacity: 1;
         border: solid 1px #DDDDDD44;
     }
-    .middle {
+    .second {
         transform: scale(.85) translate(calc(#{$image_wide} / 6), calc(#{$image_tall} / 8));
-        z-index: 20;
-        opacity: .7;
+        z-index: 30;
+        opacity: .8;
+        cursor: pointer;
     }
-    .back {
+    .third {
         transform: scale(.7) translate(calc(#{$image_wide} / 3), 0px);
+        z-index: 20;
+        opacity: .6;
+        cursor: pointer;
+    }
+    .fourth {
+        transform: scale(.55) translate(calc(#{$image_wide} / 1.8), calc(#{$image_tall} / -8));
         z-index: 10;
         opacity: .4;
+        cursor: pointer;
     }
     .link {
         color: white;
