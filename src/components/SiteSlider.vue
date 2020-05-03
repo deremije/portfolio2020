@@ -39,13 +39,13 @@ export default {
                     link: 'donnelly-cpa.com',
                     flavor: 'strawberry'
                 },
-                jeremy_randall: {
-                    site: 'jeremy_randall',
-                    class: 'fourth',
-                    description: 'This site!',
-                    link: 'deremije.com',
-                    flavor: 'mint'
-                }
+                // jeremy_randall: {
+                //     site: 'jeremy_randall',
+                //     class: 'fourth',
+                //     description: 'This site!',
+                //     link: 'deremije.com',
+                //     flavor: 'mint'
+                // }
             },
         }
     },

@@ -1,18 +1,12 @@
 <template>
     <div id="app">
-        <Header :show='show' @display_view='display_view'></Header>
-        
-        <section class='logo' :class='active_view'>
-            <div class='big_logo'>
-                <img src='images/logo.svg' />
-                <div class='big_text text_work_samples'>Work Samples</div>
-                <div class='big_text text_about_me'>About Me</div>
-                <div class='big_text text_jeremy'>jeremy</div>
-                <div class='big_text text_randall'>randall</div>
-            </div>
-        </section>
-
-        <component :is='active_view' class='center_position'></component>
+        <Header :show='show'></Header>
+        <!-- <Hero></Hero> -->
+        <AboutMe ></AboutMe>
+        <Technology></Technology>
+        <WorkSamples @add_scoop='add_scoop'></WorkSamples>
+        <Kiddooo></Kiddooo>
+        <Contact ></Contact>
         
         <footer>
             <div>
@@ -33,9 +27,21 @@
                 </a>
             </div>
             <div>
-                This page built with Vue.js
+                This page built with Vue.js - <a href='https://www.github.com/deremije' target='_blank'>view @ Github</a>
             </div>
+            
         </footer>
+        <div class='ic_animation'>
+            <div class='ice_cream'>
+                <div class='scoops'>
+                    <div v-for='scoop in scoops'>
+                        <div class='ball' :class='scoop'></div>
+                        <div class='squish' :class='scoop'></div>
+                    </div>
+                </div>
+                <div class='cone' v-if='scoops.length > 0'></div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -45,20 +51,21 @@ import AboutMe from './components/AboutMe.vue';
 import Technology from './components/Technology.vue';
 import WorkSamples from './components/WorkSamples.vue';
 import Contact from './components/Contact.vue';
+import Hero from './components/Hero.vue';
+import Kiddooo from './components/Kiddooo.vue';
 
 export default {
     name: 'App',
     components: {
-        WorkSamples, Header, AboutMe, Technology, Contact
+        WorkSamples, Header, AboutMe, Technology, Contact, Hero, Kiddooo
     },
     data() {
         return {
-            active_view: 'blank',
             show_blank: true,
             show: {
                 logo: true,
             },
-            
+            scoops: []
         }
     },
     computed: {
@@ -70,6 +77,9 @@ export default {
         display_view(view) {
             this.active_view = view;
         },
+        add_scoop(flavor) {
+            this.scoops.push(flavor);
+        }
     }
 }
 </script>
@@ -90,19 +100,20 @@ html, body {
     color: #2c3e50;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
-    .center_position {
-        top: 80px;
+    overflow: auto;
+    header {
+        position: fixed;
+        top: 0;
         left: 0;
-        position: absolute;
-        background-color: transparent;
+        z-index: 60;
     }
-    h2 {
-        text-align: left;
-        padding: 0 calc(50% - 750px);
-        font-size: 24px;
-        font-family: 'Comfortaa', cursive;
-    }
+
+    // h2 {
+    //     text-align: left;
+    //     padding: 0 calc(50% - 750px);
+    //     font-size: 24px;
+    //     font-family: 'Comfortaa', cursive;
+    // }
     p {
         font-family: 'Didact Gothic', sans-serif;
         font-size: 18px;
@@ -119,73 +130,9 @@ html, body {
     }
     section {
         width: 100%;
-        height: calc(100vh - 240px);
+        height: 820px;
         overflow: auto;
-        padding: 40px 0;
-        background-color: #f3f3f3;
-        animation: fade_into_view 300ms ease-in 0s 1 forwards;
-        -ms-overflow-style: none; // IE
-        scrollbar-width: none;  // FF
-    }
-    section::-webkit-scrollbar { // CHROME
-        display: none;
-    }
-    .logo {
-        width: 100%;
-        height: calc(100vh - 160px);
-        overflow: hidden;
         padding: 0;
-        margin: 0;
-        background-color: #f0f0f0;
-        position: relative;
-        display: flex;
-        .big_logo {
-            display: block;
-            height: auto;
-            width: 50%;
-            margin: auto;
-            position: relative;
-            transition: transform 300ms linear;
-            img {
-                display: block;
-                position: relative;
-                top: 0;
-                width: 100%;
-                height: auto;
-            }
-            .big_text {
-                font-size: 56px;
-                font-family: Comfortaa, sans-serif;
-                color: #1a1a1a;
-            }
-            .text_work_samples {
-                position: absolute;
-                bottom: 17%;
-                right: 4%;
-                transform: scale(-1);
-                opacity: 0;
-            }
-            .text_randall {
-                font-family: Raleway, sans-serif;
-                position: absolute;
-                bottom: 1.5%;
-                right: 2%;
-                opacity: 0;
-            }
-            .text_jeremy {
-                font-family: Raleway, sans-serif;
-                position: absolute;
-                top: 1.5%;
-                left: 2%;
-                opacity: 0;
-            }
-            .text_about_me {
-                position: absolute;
-                top: 14%;
-                left: 5.5%;
-                opacity: 0;
-            }
-        }
     }
     .blank {
         .big_logo {
@@ -224,10 +171,11 @@ html, body {
     }
     .Contact {
         .big_logo {
-            transform: translate(-55%, -65%) scale(.7);
+            transform: translate(25%, 0) scale(.9);
             img {
-                opacity: .7;
-                transition: opacity 200ms ease-in;
+                // opacity: .7;
+                // transition: opacity 200ms ease-in;
+                
             }
         }
     }
@@ -237,14 +185,13 @@ html, body {
         height: 60px;
         line-height: 60px;
         padding: 10px 40px;
-        width: calc(100vw - 80px);
+        width: auto;
         background-color: #e1e1e1;
         transition: all 200ms linear;
         text-align: left;
         display: flex;
         justify-content: space-evenly;
-        position: fixed;
-        bottom: 0;
+        position: relative;
         .social_icons {
             display: flex;
             justify-content: center;
@@ -255,7 +202,100 @@ html, body {
             }
         }
     }
-    
+    .ic_animation {
+        position: fixed;
+        right: 40px;
+        bottom: 80px;
+        height: 100vw;
+        width: 40px;
+        .ice_cream {
+            width: 40px;
+            height: auto;
+            position: absolute;
+            bottom: 0;
+            margin: auto;
+            .scoops {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .ball {
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                margin-top: -10px;
+                animation: scoop 1s linear;
+                box-shadow: 2px 0px #1a1a1a55;
+            }
+            .squish {
+                width: 40px;
+                height: 10px;
+                border-radius: 30px;
+                border-bottom: solid 1px #1a1a1a55;
+                margin-top: -10px;
+                animation: scoop 1s linear;
+                box-shadow: 2px 0px #1a1a1a55, 0px -1px #3f3f3f55;
+            }
+            .chocolate,
+            .strawberry,
+            .vanilla,
+            .mint {
+                position: relative;
+                opacity: 1;
+            }
+            .chocolate {
+                background-color: #6b3e26;
+            }
+            .strawberry {
+                background-color: #ffc5d9;
+            }
+            .vanilla {
+                background-color: #fdf5c9;
+            }
+            .mint {
+                background-color: #c2f2d0;
+            }
+            .cone {
+                border-top: solid 80px tan;
+                border-right: solid 20px transparent;
+                border-left: solid 20px transparent;
+                width: 0px;
+                height: 0px;
+                opacity: 1;
+                animation: cone 900ms linear 0s 1 both;
+                box-shadow: 0px -1px #1a1a1a55;
+            }
+            @keyframes cone {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-100vw);
+                }
+                1% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            @keyframes scoop {
+                0% {
+                    opacity: 1;
+                    transform: translateY(-100vh);
+                }
+                100% {
+                    transform: translateY(0);
+                }
+            }
+            @keyframes rise {
+                from {
+                    transform: translateY(0);
+                }
+                to {
+                    transform: translateY(-200vh);
+                }
+            }
+        }
+    }
     @keyframes fade_into_view {
         from { opacity: 0 }
         to { opacity: 1 }
