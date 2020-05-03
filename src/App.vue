@@ -1,42 +1,39 @@
 <template>
     <div id="app">
         <Header :show='show' @display_view='display_view'></Header>
+        
         <section class='logo' :class='active_view'>
             <div class='big_logo'>
                 <img src='images/logo.svg' />
                 <div class='big_text text_work_samples'>Work Samples</div>
+                <div class='big_text text_about_me'>About Me</div>
                 <div class='big_text text_jeremy'>jeremy</div>
                 <div class='big_text text_randall'>randall</div>
             </div>
         </section>
 
         <component :is='active_view' class='center_position'></component>
-        <!-- <section v-if='show.websites'>
-            <h2>
-                Small Business & Individual Websites
-            </h2>
-            <SiteSlider class='center'></SiteSlider>
-            <p>
-                I hand-crank simple websites for individuals and small businesses like ice cream:
-            </p>
-            <p>
-                Chocolate HTML, Strawberry CSS, and Vanilla JavaScript
-            </p>
-            <div class='ic_animation'>
-                <div class='ice_cream'>
-                    <div class='ball vanilla'></div>
-                    <div class='squish vanilla'></div>
-                    <div class='ball strawberry'></div>
-                    <div class='squish strawberry'></div>
-                    <div class='ball chocolate'></div>
-                    <div class='squish chocolate'></div>
-                    <div class='cone'></div>
-                </div>
-            </div>
-        </section> -->
+        
         <footer>
             <div>
                 Copyright 2020 Jeremy Randall
+            </div>
+            <div class='social_icons'>
+                <a href='https://www.linkedin.com/in/jeremy-randall-61217919/' target='_blank'>
+                    <img src='images/linkedin.png' />
+                </a>
+                <a href='https://www.github.com/deremije' target='_blank'>
+                    <img src='images/github.png' />
+                </a>
+                <a href='https://www.codepen.io/deremije' target='_blank'>
+                    <img src='images/codepen.png' />
+                </a>
+                <a href='https://www.freecodecamp.org/%C4%91eremije' target='_blank'>
+                    <img src='images/fcc.png' />
+                </a>
+            </div>
+            <div>
+                This page built with Vue.js
             </div>
         </footer>
     </div>
@@ -73,20 +70,6 @@ export default {
         display_view(view) {
             this.active_view = view;
         },
-        zoom() {
-            this.$refs.big_logo.classList.add('zoom_blue');
-            
-            setTimeout(() => {
-                this.show_blank = false;
-            }, 1200);
-            
-            setTimeout(() => {
-                this.show.logo = false;
-                this.$nextTick(() => {
-                    this.show.logo = true;
-                })
-            }, 2300)
-        }
     }
 }
 </script>
@@ -196,6 +179,12 @@ html, body {
                 left: 2%;
                 opacity: 0;
             }
+            .text_about_me {
+                position: absolute;
+                top: 14%;
+                left: 5.5%;
+                opacity: 0;
+            }
         }
     }
     .blank {
@@ -220,6 +209,28 @@ html, body {
             }
         }
     }
+    .AboutMe {
+        .big_logo {
+            transform: translate(-55%, -65%) scale(-.7) rotate(360deg) scale(-1);
+            img {
+                opacity: .7;
+                transition: opacity 200ms ease-in;
+            }
+            .text_about_me {
+                opacity: 1;
+                transition: opacity 200ms linear 400ms;
+            }
+        }
+    }
+    .Contact {
+        .big_logo {
+            transform: translate(-55%, -65%) scale(.7);
+            img {
+                opacity: .7;
+                transition: opacity 200ms ease-in;
+            }
+        }
+    }
     footer {
         font-family: Raleway, sans-serif;
         font-size: 18px;
@@ -231,29 +242,23 @@ html, body {
         transition: all 200ms linear;
         text-align: left;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         position: fixed;
         bottom: 0;
+        .social_icons {
+            display: flex;
+            justify-content: center;
+            img {
+                height: 40px;
+                width: auto;
+                margin: 10px;
+            }
+        }
     }
     
     @keyframes fade_into_view {
         from { opacity: 0 }
         to { opacity: 1 }
-    }
-    .zoom_blue {
-        animation: zoom_blue 2s ease-in 0s 1 forwards;
-        @keyframes zoom_blue {
-            0% {
-                opacity: 1;
-            }
-            70% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: scale(100) translateY(-10%); 
-            }
-        }
     }
 }
 </style>
