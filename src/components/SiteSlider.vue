@@ -40,13 +40,6 @@ export default {
                     link: 'donnelly-cpa.com',
                     flavor: 'strawberry'
                 },
-                // jeremy_randall: {
-                //     site: 'jeremy_randall',
-                //     class: 'fourth',
-                //     description: 'This site!',
-                //     link: 'deremije.com',
-                //     flavor: 'mint'
-                // }
             },
         }
     },
@@ -89,15 +82,28 @@ $animation_ms: 600ms;
 
 .site_slider {
     --image_wide: 800px;
+    --image_tall: 420px;
+    @media screen and (max-width: 1210px) {
+        --image_wide: 600px;
+        --image_tall: 315px;
+    }
+    @media screen and (max-width: 920px) {
+        --image_wide: 360px;
+        --image_tall: 190px;
+    }
+    @media screen and (max-width: 580px) {
+        --image_wide: 240px;
+        --image_tall: 130px;
+    }
     @media screen and (max-width: 450px) {
         --image_wide: 240px;
+        --image_tall: 422px;
     }
     position: relative;
     width: var(--image_wide);
-    height: $image_tall;
+    height: var(--image_tall);
     padding: 20px 0;
     margin-bottom: 40px;
-    background-color: transparent;
     .window {
         width: calc(100% - 2px);
         height: calc(100% - 2px);
@@ -121,13 +127,13 @@ $animation_ms: 600ms;
         display: none;
     }
     .front {
-        transform: scale(1) translate(0, calc(#{$image_tall} / 4));
+        transform: scale(1) translate(0, calc(var(--image_tall) / 4));
         z-index: 40;
         opacity: 1;
         border: solid 1px #DDDDDD44;
     }
     .second {
-        transform: scale(.85) translate(calc(var(--image_wide) / 6), calc(#{$image_tall} / 8));
+        transform: scale(.85) translate(calc(var(--image_wide) / 6), calc(var(--image_tall) / 8));
         z-index: 30;
         opacity: .8;
         cursor: pointer;
@@ -139,7 +145,7 @@ $animation_ms: 600ms;
         cursor: pointer;
     }
     .fourth {
-        transform: scale(.55) translate(calc(var(--image_wide) / 1.8), calc(#{$image_tall} / -8));
+        transform: scale(.55) translate(calc(var(--image_wide) / 1.8), calc(var(--image_tall) / -8));
         z-index: 10;
         opacity: .4;
         cursor: pointer;
@@ -153,7 +159,8 @@ $animation_ms: 600ms;
         padding: 10px 20px;
         border: none;
         position: absolute;
-        top: calc(100% + 62px);
+        bottom: 0;
+        transform: translateY(calc(var(--image_tall) / 4));
         right: 0;
         background-color: #00000044;
         z-index: 40;

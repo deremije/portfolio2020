@@ -117,6 +117,9 @@ $pink: rgb(211,89,213,.75);
     width: 100%;
     --hero_height: 40vh;
     margin: 80px 0 0 0;
+    @media screen and (max-width: 768px) {
+        --hero_height: 30vh;
+    }
     @media screen and (max-width: 450px) {
         --hero_height: 20vh;
         margin: 0;
@@ -130,10 +133,7 @@ $pink: rgb(211,89,213,.75);
     .big_logo {
         display: block;
         --logo_width: 30vw;
-        @media screen and (max-width: 450px) {
-            --logo_width: 60vw;
-        }
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 768px) {
             --logo_width: 60vw;
         }
         width: calc(var(--logo_width));

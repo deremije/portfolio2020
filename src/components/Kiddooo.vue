@@ -55,30 +55,31 @@ section.kiddooo {
     div.center_box {
         margin: auto;
         width: 660px;
-        height: 552px;
+        height: auto;
         display: grid;
-        grid-template-columns: 268px 345px;
+        grid-template-columns: 268px 1fr;
         grid-template-rows: 216px 1fr;
         grid-column-gap: 47px;
         img.phone {
             display: block;
-            width: 268px;
-            height: 552px;
+            width: 100%;
+            height: auto;
             grid-column: 1 / span 1;
             grid-row: 1 / span 2;
         }
         div.description {
-            width: 345px;
+            width: 100%;
             height: auto;
             text-align: left;
             grid-column: 2 / span 1;
             grid-row: 1 / span 1;
+            margin-top: 60px;
             h4 {
                 font-family: Comfortaa, sans-serif;
                 font-weight: 400;
                 font-size: 36px;
                 line-height: 52px;
-                margin: 60px 0 5px 0;
+                margin: 0px 0 5px 0;
                 padding: 0;
             }
             p {
@@ -91,7 +92,7 @@ section.kiddooo {
             }
         }
         div.devtools {
-            width: 345px;
+            width: 100%;
             height: auto;
             text-align: left;
             grid-column: 2 / span 1;
@@ -106,7 +107,7 @@ section.kiddooo {
             }
             div.tech_grid {
                 width: 268px;
-                height: 165px;
+                height: auto;
                 margin-top: 78px;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -125,29 +126,37 @@ section.kiddooo {
                 }
             }
         }
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 740px) {
+            width: 480px;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: 160px 1fr;
+            grid-column-gap: 27px;
+            div.description {
+                margin: 0px auto;
+            }
+            div.devtools {
+                div.tech_grid {
+                    margin: 20px auto;
+                }
+            }
+        }
+        @media screen and (max-width: 520px) {
             width: 280px;
             display: block;
             height: auto;
             img.phone {
-                width: 280px;
-                height: auto;
+                margin: 20px 0;
             }
             div.description {
-                width: 280px;
-                margin: 40px auto;
                 h4, p {
                     text-align: center;
                 }
             }
             div.devtools {
-                width: 280px;
-                margin: 40px auto;
                 h6 {
                     text-align: center;
                 }
                 div.tech_grid {
-                    width: 280px;
                     margin: 20px auto;
                     div.icon {
                         img {

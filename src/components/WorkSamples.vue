@@ -1,5 +1,6 @@
 <template>
-    <section>
+    <section class='work_samples'>
+        <div class='marker' id='work_samples'></div>
         <SiteSlider class='slider' @scoop='add_scoop'></SiteSlider>
         <p>
             I hand-crank simple websites for individuals and small businesses like ice cream:
@@ -29,28 +30,41 @@ export default {
 </script>
 
 <style scoped lang="scss">
-p {
-    padding: 0px 0 5px;
-    @media screen and (max-width: 450px) {
-        width: calc(100% - 60px);
-        height: auto;
-        margin: 20px auto;
-        padding: 0;
+section.work_samples {
+    position: relative;
+    .marker {
+        width: 100%;
+        height: 0px;
+        top: 0px;
+        position: absolute;
+    }
+
+    p {
+        padding: 0px 0 5px;
+        @media screen and (max-width: 649px) {
+            width: 450px;
+            margin: auto;
+        }
+        @media screen and (max-width: 470px) {
+            width: 280px;
+            height: auto;
+            margin: 20px auto;
+            padding: 0;
+        }
+    }
+    .clickable {
+        cursor: pointer;
+        text-decoration: underline;
+        font-weight: 600;
+    }
+    .slider {
+        margin: 50px auto 140px;
+    }
+    .tech_logos {
+        display: block;
+        margin: auto;
+        height: 60px;
+        width: auto;
     }
 }
-.clickable {
-    cursor: pointer;
-    text-decoration: underline;
-    font-weight: 600;
-}
-.slider {
-    margin: 50px auto 140px;
-}
-.tech_logos {
-    display: block;
-    margin: auto;
-    height: 60px;
-    width: auto;
-}
-
 </style>

@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div>
-                This page built with Vue.js<span class='github_repo_link'> - <a href='https://www.github.com/deremije' target='_blank'>view @ Github</a></span>
+                This Page is <a href='https://www.github.com/deremije' target='_blank'>Open Source</a>
             </div>
             
         </footer>
@@ -105,6 +105,7 @@ html, body {
     width: 100%;
     height: 100vh;
     overflow: auto;
+    
     p {
         font-family: 'Didact Gothic', sans-serif;
         font-size: 18px;
@@ -112,20 +113,12 @@ html, body {
     a {
         text-decoration: none;
     }
-    // .logo_main {
-    //     display: block;
-    //     height: 40px;
-    //     width: auto;
-    //     margin: auto;
-    //     padding: 30px 0 20px;
-    // }
     section {
         width: 100%;
-        height: 820px;
-        overflow: hidden;
-        @media screen and (max-width: 450px) {
             padding: 40px 0;
             height: auto;
+        overflow: hidden;
+        @media screen and (max-width: 1024px) {
         }
     }
     footer {
@@ -143,6 +136,7 @@ html, body {
         position: relative;
         div {
             width: 350px;
+            text-align: center;
         }
         div.social_icons {
             display: flex;
@@ -153,7 +147,13 @@ html, body {
                 margin: 10px;
             }
         }
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 1049px) {
+            div {
+                width: 280px;
+                font-size: 14px;
+            }
+        }
+        @media screen and (max-width: 750px) {
             height: auto;
             padding: 20px calc(50% - 140px);
             margin: auto;
@@ -163,9 +163,7 @@ html, body {
             div {
                 width: 280px;
                 height: 60px;
-                span.github_repo_link {
-                    display: none;
-                }
+                font-size: 18px;
             }
         }
     }
@@ -229,7 +227,6 @@ html, body {
                 height: 0px;
                 opacity: 1;
                 animation: cone 900ms linear 0s 1 both;
-                box-shadow: 0px -1px #1a1a1a55;
             }
             @keyframes cone {
                 0% {

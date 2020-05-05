@@ -1,5 +1,6 @@
 <template>
-    <section class='about_me' id='about_me'>
+    <section class='about_me'>
+        <div class='marker' id='about_me'></div>
         <div class='center_box'>
             <h2 v-if='show_french'>
                 Bonjour,<br />
@@ -59,11 +60,19 @@ export default {
 section.about_me {
     background-color: #F3F3F3;
     display: flex;
-
+    height: auto;
+    position: relative;
+    .marker {
+        width: 100%;
+        height: 0px;
+        top: -80px;
+        position: absolute;
+    }
     div.center_box {
         margin: auto;
-        height: 392px;
         width: 932px;
+        height: auto;
+        min-height: 405px;
         display: grid;
         grid-template-columns: 1fr 405px;
         grid-template-rows: 90px; 
@@ -96,10 +105,10 @@ section.about_me {
         span {
             cursor: pointer;
         }
-        @media screen and (max-width: 450px) {
-            width: 280px;
-            height: auto;
-            display: block;
+        @media screen and (max-width: 1012px) {
+            width: 680px;
+            grid-template-columns: 1fr 260px;
+            min-height: 260px;
             h2 {
                 font-size: 36px;
             }
@@ -110,6 +119,11 @@ section.about_me {
             p {
                 width: 100%;
             }
+        }
+        @media screen and (max-width: 767px) {
+            width: 280px;
+            display: block;
+            padding: 40px 0;
         }
     }
     

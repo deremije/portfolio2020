@@ -1,5 +1,7 @@
 <template>
-    <section class='contact' id='contact'>
+    <section class='contact'>
+        
+        <div class='marker' id='contact'></div>
         <div class='contact_card'>
             <div class='details'>
                 <h3>Jeremy Randall</h3>
@@ -32,13 +34,13 @@ section.contact {
     background-color: #F3F3F3;
 }
 div.contact_card {
-    width: 950px;
+    width: 900px;
     height: 400px;
     position: relative;
     margin: auto;
     div.details {
         height: auto;
-        width: 400px;
+        width: 300px;
         position: absolute;
         bottom: 50%;
         left: 0;
@@ -88,15 +90,47 @@ div.contact_card {
     }
     img.profile_pic {
         display: block;
-        width: 600px;
+        width: calc(100% - 300px);
         height: auto;
-        border-radius: 5px;
         position: absolute;
         right: 0;
         bottom: 50%;
         transform: translateY(50%);
     }
+    @media screen and (max-width: 939px) {
+        width: calc(100% - 40px);
+        div.details {
+            width: 30%;
+            h3 {
+                font-size: 28px;
+                line-height: 28px;
+            }
+            h4 {
+                font-size: 18px;
+            }
+            h5 {
+                font-size: 14px;
+            }
+        }
+        img.profile_pic {
+            width: 66%;
+        }
+    }
+    
+    @media screen and (max-width: 720px) {
+       div.details {
+           width: 204px;
+       }
+       img.profile_pic {
+           width: calc(100% - 232px);
+       }
+    }
+    
     @media screen and (max-width: 450px) {
+    
+    }
+
+    @media screen and (max-width: 625px) {
         width: 280px;
         height: auto;
         display: flex;
@@ -108,6 +142,16 @@ div.contact_card {
             bottom: auto;
             transform: translateY(0);
             padding: 20px 0;
+            h3 {
+                font-size: 36px;
+                line-height: 36px;
+            }
+            h4 {
+                font-size: 22px;
+            }
+            h5 {
+                font-size: 16px;
+            }
         }
     }
 }

@@ -16,7 +16,7 @@
             </a>
             <a href='#work_samples'>
                 <button class='blue' :class='open' ref='work_samples'>
-                    <span v-if='show_menu'>Work Samples</span>
+                    <span v-if='show_menu'>Previous Work</span>
                 </button>
             </a>
             <a href='#contact'>
@@ -101,24 +101,25 @@ header {
     }
     .logo_container {
         display: block;
-        grid-template-columns: 40.35px 50.4px;
-        grid-template-rows: 16.35px 18.45px;
-        grid-gap: 1.65px;
         height: 40px;
-        margin-top: 10px;
         width: calc(100vw - 330px);
-        animation: fade_into_view 300ms ease-in 0s 1 forwards;
         position: absolute;
-        top: 10px;
+        top: 20px;
         left: 280px;
+        animation: fade_into_view 300ms ease-in 0s 1 forwards;
         button {
             border: none;
+            text-align: center;
+            position: absolute;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
             font-family: 'Comfortaa', cursive;
             font-size: 18px;
-            text-align: center;
-            line-height: 40px;
             font-weight: bold;
+            color: #1a1a1a;
             cursor: pointer;
+            text-shadow: 1px 1px transparent;
             span {
                 animation: fade_into_view 200ms ease-in 600ms 1 both;
                 transition: all 50ms linear;
@@ -126,41 +127,28 @@ header {
         }
         button:hover {
             span {
-                color: #e4e4e4;
-                text-shadow: 2px 2px #1a1a1a;
+                text-shadow: 1px 1px #e1e1e1;
             }
         }
         .orange {
-            width: 200px;
-            height: 40px;
             left: calc(100vw - 330px - 875px);
-            position: absolute;
             background-color: $orange;
             transform: translateX(calc(-1 * (100vw - 330px - 796px))) translateY(-13px) scaleX(calc(40.25 / 200)) scaleY(calc(16.35 / 40)) ;
             transition: transform 400ms linear 600ms;
         }
         .green {
-            width: 200px;
-            height: 40px;
-            position: absolute;
             left: calc(100vw - 330px - 650px);
             background-color: $green;
             transform: translateX(calc(-1 * (100vw - 330px - 610px))) translateY(-9.5px) scaleX(calc(32.4 / 200)) scaleY(calc(9.3 / 40));
             transition: transform 400ms linear 400ms;
         }
         .blue {
-            width: 200px;
-            height: 40px;
-            position: absolute;
             left: calc(100vw - 330px - 425px);
             background-color: $blue;
             transform: translateX(calc(-1 * (100vw - 330px - 394px))) translateY(7px) scaleX(calc(50.4 / 200)) scaleY(calc(18.45 / 40));
             transition: transform 400ms linear 200ms;
         }
         .pink {
-            width: 200px;
-            height: 40px;
-            position: absolute;
             left: calc(100vw - 330px - 200px);
             background-color: $pink;
             transform: translateX(calc(-1 * (100vw - 330px - 129.5px))) translateY(3.5px) scaleX(calc(22.95 / 200)) scaleY(calc(11.85 / 40));
@@ -170,11 +158,43 @@ header {
             transform: none;
         }
         @media screen and (max-width: 1210px) {
-            .open {
-                transform: scale(0);
+            width: calc(100vw - 530px);
+            button {
+                width: 150px;
             }
+            .orange {
+                left: calc(100vw - 330px - 675px);
+            }   
+            .green {
+                left: calc(100vw - 330px - 500px);
+            }
+            .blue {
+                left: calc(100vw - 330px - 325px);
+            }
+            .pink {
+                left: calc(100vw - 330px - 150px);
+            } 
         }
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 1010px) {
+            width: calc(100vw - 760px);
+            button {
+                width: 100px;
+                font-size: 12px;
+            }
+            .orange {
+                left: calc(100vw - 330px - 445px);
+            }   
+            .green {
+                left: calc(100vw - 330px - 330px);
+            }
+            .blue {
+                left: calc(100vw - 330px - 215px);
+            }
+            .pink {
+                left: calc(100vw - 330px - 100px);
+            } 
+        }
+        @media screen and (max-width: 768px) {
             display: none;
         }
     }

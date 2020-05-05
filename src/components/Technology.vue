@@ -1,5 +1,6 @@
 <template>
     <section class='technology'>
+        <div class='marker' id='technology'></div>
         <p>
             My level of expertise varies between these technologies,
             but I've used each of them to complete personal and professional 
@@ -23,12 +24,12 @@ export default {
     data() {
         return {
             tech: [
-                'html_js_css',
                 'figma',
                 'gimp',
-                'vuejs',
-                'react',
                 'git',
+                'html_js_css',
+                'react',
+                'vuejs',
                 'nodejs',
                 'express',
                 'mongodb',
@@ -44,6 +45,13 @@ export default {
 <style scoped lang="scss">
 section.technology {
     background-color: #EEEEEE;
+    position: relative;
+    .marker {
+        width: 100%;
+        height: 0px;
+        top: 0px;
+        position: absolute;
+    }
     p {
         font-family: Comfortaa, sans-serif;
         font-size: 18px;
@@ -51,18 +59,21 @@ section.technology {
         text-align: center;
         margin: 50px auto;
         width: 630px;
+        @media screen and (max-width: 649px) {
+            width: 420px;
+        }
         @media screen and (max-width: 450px) {
-            width: calc(100% - 60px);
+            width: 280px;
             height: auto;
             margin: 20px auto;
         }
     }
     div.tech_grid {
-        width: 900px;
-        height: 480px;
+        width: 630px;
+        height: auto;
         display: grid;
         margin: auto;
-        grid-template-columns: repeat(3, 300px);
+        grid-template-columns: repeat(3, 210px);
         grid-template-rows: repeat(4, 120px);
         div.image_wrapper {
             display: flex;
@@ -73,10 +84,14 @@ section.technology {
                 max-width: 130px;
             }
         }
+        @media screen and (max-width: 649px) {
+            width: 420px;
+            grid-template-columns: repeat(2, 210px);
+            grid-template-rows: repeat(6, 120px);
+        }
         @media screen and (max-width: 450px) {
             display: block;
             width: 100%;
-            height: auto;
             div.image_wrapper {
                 img {
                     margin: 20px auto;
