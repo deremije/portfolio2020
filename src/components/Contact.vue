@@ -31,7 +31,7 @@ section.contact {
     display: flex;
     background-color: #F3F3F3;
 }
-.contact_card {
+div.contact_card {
     width: 950px;
     height: 400px;
     position: relative;
@@ -95,6 +95,20 @@ section.contact {
         right: 0;
         bottom: 50%;
         transform: translateY(50%);
+    }
+    @media screen and (max-width: 450px) {
+        width: 280px;
+        height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+        div.details,
+        img.profile_pic {
+            width: 100%;
+            position: relative;
+            bottom: auto;
+            transform: translateY(0);
+            padding: 20px 0;
+        }
     }
 }
 </style>

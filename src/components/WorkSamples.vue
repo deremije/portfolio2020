@@ -20,11 +20,6 @@ export default {
     components: {
         SiteSlider
     },
-    data() {
-        return {
-            
-        }
-    },
     methods: {
         add_scoop(flavor) {
             this.$emit("add_scoop", flavor);
@@ -36,6 +31,12 @@ export default {
 <style scoped lang="scss">
 p {
     padding: 0px 0 5px;
+    @media screen and (max-width: 450px) {
+        width: calc(100% - 60px);
+        height: auto;
+        margin: 20px auto;
+        padding: 0;
+    }
 }
 .clickable {
     cursor: pointer;

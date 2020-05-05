@@ -1,7 +1,6 @@
 <template>
     <section class='kiddooo' id='kiddooo'>
         <div class='center_box'>
-            <img class='phone' src='images/kiddooo.png' />
             <div class='description'>
                 <h4>
                     Kiddooo App
@@ -10,6 +9,9 @@
                     Keeping nannies, babysitters, parents & co-parents in 
                     the loop together, even when they're apart.
                 </p>
+            </div>
+            <img class='phone' src='images/kiddooo.png' />
+            <div class='devtools'>
                 <h6>
                     Currently in development using Figma, Vue.js, Node.js, Express.js, MongoDB, and Cordova.
                 </h6>
@@ -56,16 +58,21 @@ section.kiddooo {
         height: 552px;
         display: grid;
         grid-template-columns: 268px 345px;
+        grid-template-rows: 216px 1fr;
         grid-column-gap: 47px;
         img.phone {
             display: block;
             width: 268px;
             height: 552px;
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 2;
         }
         div.description {
             width: 345px;
-            height: 552px;
+            height: auto;
             text-align: left;
+            grid-column: 2 / span 1;
+            grid-row: 1 / span 1;
             h4 {
                 font-family: Comfortaa, sans-serif;
                 font-weight: 400;
@@ -82,6 +89,13 @@ section.kiddooo {
                 margin: 0;
                 padding: 0;
             }
+        }
+        div.devtools {
+            width: 345px;
+            height: auto;
+            text-align: left;
+            grid-column: 2 / span 1;
+            grid-row: 2 / span 1;
             h6 {
                 font-family: Comfortaa, sans-serif;
                 font-weight: 100;
@@ -93,7 +107,7 @@ section.kiddooo {
             div.tech_grid {
                 width: 268px;
                 height: 165px;
-                margin-top: 88px;
+                margin-top: 78px;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 div.icon {
@@ -107,6 +121,39 @@ section.kiddooo {
                         left: 0;
                         top: 50%;
                         transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: 450px) {
+            width: 280px;
+            display: block;
+            height: auto;
+            img.phone {
+                width: 280px;
+                height: auto;
+            }
+            div.description {
+                width: 280px;
+                margin: 40px auto;
+                h4, p {
+                    text-align: center;
+                }
+            }
+            div.devtools {
+                width: 280px;
+                margin: 40px auto;
+                h6 {
+                    text-align: center;
+                }
+                div.tech_grid {
+                    width: 280px;
+                    margin: 20px auto;
+                    div.icon {
+                        img {
+                            left: 50%;
+                            transform: translateY(-50%) translateX(-50%);
+                        }
                     }
                 }
             }

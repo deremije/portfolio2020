@@ -51,6 +51,11 @@ section.technology {
         text-align: center;
         margin: 50px auto;
         width: 630px;
+        @media screen and (max-width: 450px) {
+            width: calc(100% - 60px);
+            height: auto;
+            margin: 20px auto;
+        }
     }
     div.tech_grid {
         width: 900px;
@@ -66,6 +71,16 @@ section.technology {
                 margin: auto;
                 max-height: 70px;
                 max-width: 130px;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            display: block;
+            width: 100%;
+            height: auto;
+            div.image_wrapper {
+                img {
+                    margin: 20px auto;
+                }
             }
         }
     }

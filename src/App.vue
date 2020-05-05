@@ -1,12 +1,12 @@
 <template>
     <div id="app">
         <Header :show='show'></Header>
-        <!-- <Hero></Hero> -->
-        <AboutMe ></AboutMe>
-        <Technology></Technology>
-        <WorkSamples @add_scoop='add_scoop'></WorkSamples>
+        <Hero></Hero>
+        <AboutMe></AboutMe>
+        <Technology id='technology'></Technology>
+        <WorkSamples @add_scoop='add_scoop' id='work_samples'></WorkSamples>
         <Kiddooo></Kiddooo>
-        <Contact ></Contact>
+        <Contact></Contact>
         
         <footer>
             <div>
@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div>
-                This page built with Vue.js - <a href='https://www.github.com/deremije' target='_blank'>view @ Github</a>
+                This page built with Vue.js<span class='github_repo_link'> - <a href='https://www.github.com/deremije' target='_blank'>view @ Github</a></span>
             </div>
             
         </footer>
@@ -87,10 +87,14 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Didact+Gothic&family=Raleway:wght@400;600&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
 html, body {
     margin: 0;
     padding: 0;
     width: 100vw;
+    
 }
 
 #app {
@@ -101,19 +105,6 @@ html, body {
     width: 100%;
     height: 100vh;
     overflow: auto;
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 60;
-    }
-
-    // h2 {
-    //     text-align: left;
-    //     padding: 0 calc(50% - 750px);
-    //     font-size: 24px;
-    //     font-family: 'Comfortaa', cursive;
-    // }
     p {
         font-family: 'Didact Gothic', sans-serif;
         font-size: 18px;
@@ -121,62 +112,20 @@ html, body {
     a {
         text-decoration: none;
     }
-    .logo_main {
-        display: block;
-        height: 40px;
-        width: auto;
-        margin: auto;
-        padding: 30px 0 20px;
-    }
+    // .logo_main {
+    //     display: block;
+    //     height: 40px;
+    //     width: auto;
+    //     margin: auto;
+    //     padding: 30px 0 20px;
+    // }
     section {
         width: 100%;
         height: 820px;
-        overflow: auto;
-        padding: 0;
-    }
-    .blank {
-        .big_logo {
-            .text_randall,
-            .text_jeremy {
-                opacity: 1;
-                transition: opacity 200ms linear 400ms;
-            }
-        }
-    }
-    .WorkSamples {
-        .big_logo {
-            transform: translate(-55%, -65%) scale(.7) rotate(180deg);
-            img {
-                opacity: .7;
-                transition: opacity 200ms ease-in;
-            }
-            .text_work_samples {
-                opacity: 1;
-                transition: opacity 200ms linear 400ms;
-            }
-        }
-    }
-    .AboutMe {
-        .big_logo {
-            transform: translate(-55%, -65%) scale(-.7) rotate(360deg) scale(-1);
-            img {
-                opacity: .7;
-                transition: opacity 200ms ease-in;
-            }
-            .text_about_me {
-                opacity: 1;
-                transition: opacity 200ms linear 400ms;
-            }
-        }
-    }
-    .Contact {
-        .big_logo {
-            transform: translate(25%, 0) scale(.9);
-            img {
-                // opacity: .7;
-                // transition: opacity 200ms ease-in;
-                
-            }
+        overflow: hidden;
+        @media screen and (max-width: 450px) {
+            padding: 40px 0;
+            height: auto;
         }
     }
     footer {
@@ -192,7 +141,10 @@ html, body {
         display: flex;
         justify-content: space-evenly;
         position: relative;
-        .social_icons {
+        div {
+            width: 350px;
+        }
+        div.social_icons {
             display: flex;
             justify-content: center;
             img {
@@ -201,11 +153,26 @@ html, body {
                 margin: 10px;
             }
         }
+        @media screen and (max-width: 450px) {
+            height: auto;
+            padding: 20px calc(50% - 140px);
+            margin: auto;
+            width: 280px;
+            text-align: center;
+            flex-direction: column;
+            div {
+                width: 280px;
+                height: 60px;
+                span.github_repo_link {
+                    display: none;
+                }
+            }
+        }
     }
     .ic_animation {
         position: fixed;
         right: 40px;
-        bottom: 80px;
+        bottom: 0px;
         height: 100vw;
         width: 40px;
         .ice_cream {
@@ -294,6 +261,9 @@ html, body {
                     transform: translateY(-200vh);
                 }
             }
+        }
+        @media screen and (max-width: 450px) {
+            display: none;
         }
     }
     @keyframes fade_into_view {

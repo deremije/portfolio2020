@@ -59,7 +59,8 @@ export default {
 section.about_me {
     background-color: #F3F3F3;
     display: flex;
-    .center_box {
+
+    div.center_box {
         margin: auto;
         height: 392px;
         width: 932px;
@@ -95,6 +96,22 @@ section.about_me {
         span {
             cursor: pointer;
         }
+        @media screen and (max-width: 450px) {
+            width: 280px;
+            height: auto;
+            display: block;
+            h2 {
+                font-size: 36px;
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+            p {
+                width: 100%;
+            }
+        }
     }
+    
 }
 </style>

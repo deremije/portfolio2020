@@ -1,7 +1,8 @@
 <template>
     <div class='site_slider'>
         <div class='window' v-for='site in sites' :key='site.site' :class='site.class' @click='bring_to_front(site.site)'>
-            <img :src='"images/" + site.site + ".png"' />
+            <img v-if='screen_width > 450' :src='"images/" + site.site + ".png"' />
+            <img v-else :src='"images/" + site.site + "_320.png"' />
         </div>
         <div class='link' v-if='show_link'>
             <a :href="'https://' + front_slide.link">
@@ -56,6 +57,9 @@ export default {
                     return this.sites[site];
                 }
             }
+        },
+        screen_width() {
+            return window.screen.width;
         }
     },
     methods: {
@@ -80,20 +84,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-$image_wide: 800px;
 $image_tall: 420px;
 $animation_ms: 600ms;
 
 .site_slider {
+    --image_wide: 800px;
+    @media screen and (max-width: 450px) {
+        --image_wide: 240px;
+    }
     position: relative;
-    width: $image_wide;
+    width: var(--image_wide);
     height: $image_tall;
     padding: 20px 0;
     margin-bottom: 40px;
     background-color: transparent;
     .window {
-        width: calc(#{$image_wide} - 2px);
-        height: calc(#{$image_tall} - 2px);
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
         border-radius: 3px;
         margin: auto;
         overflow-x: hidden;
@@ -120,19 +127,19 @@ $animation_ms: 600ms;
         border: solid 1px #DDDDDD44;
     }
     .second {
-        transform: scale(.85) translate(calc(#{$image_wide} / 6), calc(#{$image_tall} / 8));
+        transform: scale(.85) translate(calc(var(--image_wide) / 6), calc(#{$image_tall} / 8));
         z-index: 30;
         opacity: .8;
         cursor: pointer;
     }
     .third {
-        transform: scale(.7) translate(calc(#{$image_wide} / 3), 0px);
+        transform: scale(.7) translate(calc(var(--image_wide) / 3), 0px);
         z-index: 20;
         opacity: .6;
         cursor: pointer;
     }
     .fourth {
-        transform: scale(.55) translate(calc(#{$image_wide} / 1.8), calc(#{$image_tall} / -8));
+        transform: scale(.55) translate(calc(var(--image_wide) / 1.8), calc(#{$image_tall} / -8));
         z-index: 10;
         opacity: .4;
         cursor: pointer;
