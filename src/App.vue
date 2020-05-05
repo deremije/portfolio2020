@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div>
-                This Page is <a href='https://www.github.com/deremije' target='_blank'>Open Source</a>
+                This Page is <a href='https://github.com/deremije/portfolio2020' target='_blank'>Open Source</a>
             </div>
             
         </footer>
