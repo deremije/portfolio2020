@@ -188,16 +188,16 @@ $pink: rgb(211,89,213,.75);
                 transform: rotate(90deg);
             }
             div.orange_shatter {
-                transform: translate(-600px, -200px);
+                transform: translate(-900px, -300px);
             }
             div.blue_shatter {
-                transform: translate(600px, 200px);
+                transform: translate(900px, 300px);
             }
             div.green_shatter {
-                transform: translate(600px, -200px);
+                transform: translate(900px, -300px);
             }
             div.pink_shatter {
-                transform: translate(-600px, 200px);
+                transform: translate(-900px, 300px);
             }
         }
         .spin {
