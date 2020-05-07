@@ -32,6 +32,7 @@ export default {
 <style scoped lang="scss">
 section.work_samples {
     position: relative;
+    background-color: #f3f3f3;
     .marker {
         width: 100%;
         height: 0px;

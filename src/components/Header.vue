@@ -87,7 +87,7 @@ header {
     left: 0;
     z-index: 60;
     @media screen and (max-width: 450px) {
-        display: block;
+        display: none;
         position: relative;
     }
     .name {

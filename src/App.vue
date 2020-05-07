@@ -3,8 +3,8 @@
         <Header :show='show'></Header>
         <Hero></Hero>
         <AboutMe></AboutMe>
-        <Technology id='technology'></Technology>
-        <WorkSamples @add_scoop='add_scoop' id='work_samples'></WorkSamples>
+        <Technology></Technology>
+        <WorkSamples @add_scoop='add_scoop'></WorkSamples>
         <Kiddooo></Kiddooo>
         <Contact></Contact>
         
