@@ -10,14 +10,14 @@
                     the loop together, even when they're apart.
                 </p>
             </div>
-            <img class='phone' src='images/kiddooo.png' />
+            <img class='phone' src='images/kiddooo.png' alt="Smartphone view of the Kidd.ooo App" />
             <div class='devtools'>
                 <h6>
                     Currently in development using Figma, Vue.js, Node.js, Express.js, MongoDB, and Cordova.
                 </h6>
                 <div class='tech_grid'>
                     <div v-for='icon in tech' :key='icon' class='icon'>
-                        <img :src="'images/' + icon + '.png'" />
+                        <img :src="'images/' + icon + '.png'" :alt='icon' />
                     </div>
                 </div>
             </div>

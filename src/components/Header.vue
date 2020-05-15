@@ -4,22 +4,22 @@
             jeremy / randall
         </div>
         <div class='logo_container' v-if='show.logo' @click='open_menu'> 
-            <a href='#about_me'>
+            <a href='#about_me' tabindex="1">
                 <button class='orange' :class='open' ref='orange'>
                     <span v-if='show_menu'>About Me</span>
                 </button>
             </a>
-            <a href='#technology'>
+            <a href='#technology' tabindex="2">
                 <button class='green' :class='open' ref='green'>
                     <span v-if='show_menu'>Tech & Skills</span>
                 </button>
             </a>
-            <a href='#work_samples'>
+            <a href='#work_samples' tabindex="3">
                 <button class='blue' :class='open' ref='work_samples'>
                     <span v-if='show_menu'>Previous Work</span>
                 </button>
             </a>
-            <a href='#contact'>
+            <a href='#contact' tabindex="4">
                 <button class='pink' :class='open' ref='pink' @click='display_view("Contact")'>
                     <span v-if='show_menu'>Contact</span>
                 </button>

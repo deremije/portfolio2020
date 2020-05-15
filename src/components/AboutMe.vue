@@ -7,7 +7,7 @@
                 je m'appelle Jeremy
             </h2>
             <h2 v-else>Hi, I'm Jeremy</h2>
-            <img src='images/jeremy.png' />
+            <img src='images/jeremy.png' alt="Jeremy having a beer in Zagreb, Croatia" />
             <div v-if='show_french'>
                 <p>
                     Je suis un développeur <span @click='show_french = false'>américain</span> d'UI d'Austin, Texas, qui travaille maintenant depuis mon domicile à Lyon. Je recherche des problèmes intéressants qui nécessitent des solutions innovantes.

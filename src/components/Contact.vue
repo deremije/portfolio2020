@@ -7,11 +7,11 @@
                 <h3>Jeremy Randall</h3>
                 <h4><a href='mailto:jeremy@deremije.com'>jeremy@deremije.com</a></h4>
                 <div class='phones'>
-                    <h5><a href='tel:8128274414'><img class='flag' src='images/usa.png' />+1 (812) 827-4414</a></h5>
-                    <h5><a href='tel:622512282'><img class='flag' src='images/france.png' />+33 (0)6 22 51 22 82</a></h5>
+                    <h5><a href='tel:8128274414'><img class='flag' src='images/usa.png' alt="United States Flag" />+1 (812) 827-4414</a></h5>
+                    <h5><a href='tel:622512282'><img class='flag' src='images/france.png' alt="France Flag" />+33 (0)6 22 51 22 82</a></h5>
                 </div>
             </div>
-            <img class='profile_pic' src='images/logo.svg' />
+            <img class='profile_pic' src='images/logo.svg' alt="Colorful logo" />
         </div>
     </section>
 </template>

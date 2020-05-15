@@ -1,8 +1,8 @@
 <template>
     <div class='site_slider'>
         <div class='window' v-for='site in sites' :key='site.site' :class='site.class' @click='bring_to_front(site.site)'>
-            <img v-if='screen_width > 450' :src='"images/" + site.site + ".png"' />
-            <img v-else :src='"images/" + site.site + "_320.png"' />
+            <img v-if='screen_width > 450' :src='"images/" + site.site + ".png"' :alt="site.link" />
+            <img v-else :src='"images/" + site.site + "_320.png"' :alt="site.link" />
         </div>
         <div class='link' v-if='show_link'>
             <a :href="'https://' + front_slide.link">

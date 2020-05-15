@@ -24,15 +24,15 @@ export default {
     data() {
         return {
             tech: [
-                'figma',
-                'gimp',
-                'git',
                 'html_js_css',
                 'react',
                 'vuejs',
                 'nodejs',
                 'express',
                 'mongodb',
+                'figma',
+                'invision',
+                'git',
                 'cordova',
                 'python',
                 'flask',

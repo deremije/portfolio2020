@@ -57,6 +57,11 @@ section.work_samples {
         cursor: pointer;
         text-decoration: underline;
         font-weight: 600;
+        @media screen and (max-width: 470px) {
+            cursor: default;
+            text-decoration: none;
+            font-weight: 400;
+        }
     }
     .slider {
         margin: 50px auto 140px;
