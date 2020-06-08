@@ -25,17 +25,23 @@ export default {
         return {
             tech: [
                 'html_js_css',
+                'sass',
                 'react',
                 'vuejs',
+                'git',
                 'nodejs',
                 'express',
                 'mongodb',
+                'chartjs',
+                'avocode',
                 'figma',
                 'invision',
-                'git',
-                'cordova',
                 'python',
                 'flask',
+                'cordova',
+                'docker',
+                // 'gimp',
+                // 'heroku'
             ]
         }
     },
@@ -69,19 +75,19 @@ section.technology {
         }
     }
     div.tech_grid {
-        width: 630px;
+        width: 640px;
         height: auto;
         display: grid;
         margin: auto;
-        grid-template-columns: repeat(3, 210px);
+        grid-template-columns: repeat(4, 160px);
         grid-template-rows: repeat(4, 120px);
         div.image_wrapper {
             display: flex;
             img {
                 display: block;
                 margin: auto;
-                max-height: 70px;
-                max-width: 130px;
+                max-height: 60px;
+                max-width: 110px;
             }
         }
         @media screen and (max-width: 649px) {
