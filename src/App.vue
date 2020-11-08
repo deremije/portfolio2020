@@ -1,14 +1,14 @@
 <template>
     <div id="app">
-        <Header :show='show'></Header>
-        <Hero></Hero>
-        <AboutMe></AboutMe>
-        <Technology></Technology>
-        <WorkSamples @add_scoop='add_scoop'></WorkSamples>
-        <Kiddooo></Kiddooo>
-        <Contact></Contact>
-        <Footer></Footer>
-        <IceCream :scoops='scoops'></IceCream>
+        <Header :show='show' />
+        <Hero />
+        <AboutMe />
+        <Technology />
+        <WorkSamples @add_scoop='add_scoop' />
+        <Sortir />
+        <Contact />
+        <Footer />
+        <IceCream :scoops='scoops' />
     </div>
 </template>
 
@@ -22,11 +22,12 @@ import Hero from './components/Hero.vue';
 import Kiddooo from './components/Kiddooo.vue';
 import Footer from './components/Footer.vue';
 import IceCream from './components/IceCream.vue';
+import Sortir from './components/Sortir.vue';
 
 export default {
     name: 'App',
     components: {
-        WorkSamples, Header, AboutMe, Technology, Contact, Hero, Kiddooo, Footer, IceCream
+        WorkSamples, Header, AboutMe, Technology, Contact, Hero, Kiddooo, Footer, IceCream, Sortir
     },
     data() {
         return {
